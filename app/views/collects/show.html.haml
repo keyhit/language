@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Learned:
+  = @collect.learned
+%p
+  %strong Frequency:
+  = @collect.frequency
+= link_to 'Edit', edit_collect_path(@collect)
+|
+= link_to 'Back', collects_path

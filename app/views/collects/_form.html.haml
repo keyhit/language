@@ -1,0 +1,17 @@
+= form_for(collect) do |f|
+  - if collect.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(collect.errors.count, "error")
+        prohibited this collect from being saved:
+      %ul
+        - collect.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :learned
+    = f.check_box :learned
+  .field
+    = f.label :frequency
+    = f.text_field :frequency
+  .actions
+    = f.submit

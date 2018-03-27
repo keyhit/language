@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Language
+    = favicon_link_tag 'favicon.jpeg'
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .wrapper
+      .content
+        .row
+          .col-xs-12.col-sm-12.col-md-12.col-lg-12
+            =render 'shared/header'
+        .row
+          - if user_signed_in?
+            .col-xs-3.col-sm-3.col-md-3.col-lg-3
+              =render 'shared/sidebar'
+            .col-xs-9.col-sm-9.col-md-9.col-lg-9
+              .views
+                = yield
+          -else
+            = yield
+      .footer
+        .row
+          .col-xs-12.col-sm-12.col-md-12.col-lg-12
+            =render 'shared/footer'

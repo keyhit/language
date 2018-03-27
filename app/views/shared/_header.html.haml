@@ -1,0 +1,54 @@
+%nav.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header
+      %a.navbar-brand{ href: "/"}
+        %img{alt: "Mylanguage easy remember", src: "..."}
+
+
+
+        / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li.active
+          %a{:href => "#"}
+            Link
+            %span.sr-only (current)
+        %li
+          %a{:href => "#"} Link
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Select language
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#"} Action
+            %li
+              %a{:href => "#"} Another action
+            %li
+              %a{:href => "#"} Something else here
+            %li.divider{:role => "separator"}
+            %li
+              %a{:href => "#"} Separated link
+            %li.divider{:role => "separator"}
+            %li
+              %a{:href => "#"} One more separated link
+
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Select category
+            %span.caret
+          %ul.dropdown-menu
+            / - @categories.each do |category|
+            /   %li= link_to category.name
+        %li
+          %a{:href => "#"} All my words
+
+        %form.navbar-form.navbar-left{:role => "search"}
+          .form-group
+            %input.form-control{:placeholder => "Search", :type => "text"}/
+          %button.btn.btn-default{:type => "submit"} Submit
+
+        - if user_signed_in?
+          %li.active
+            = link_to 'LogOut', destroy_user_session_path, method: :delete
+            %span.sr-only (current)

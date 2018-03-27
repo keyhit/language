@@ -1,0 +1,18 @@
+%p#notice= notice
+%h1 Collects
+%table
+  %thead
+    %tr
+      %th Learned
+      %th Frequency
+      %th{:colspan => "3"}
+  %tbody
+    - @collects.each do |collect|
+      %tr
+        %td= collect.learned
+        %td= collect.frequency
+        %td= link_to 'Show', collect
+        %td= link_to 'Edit', edit_collect_path(collect)
+        %td= link_to 'Destroy', collect, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Collect', new_collect_path
