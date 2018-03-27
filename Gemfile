@@ -28,6 +28,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_bot'
   gem 'factory_bot_rails'
+  gem 'flag-icons-rails'
   gem 'haml-rails', '~> 1.0'
   gem 'jquery-rails'
   gem 'rails-controller-testing'

@@ -15,24 +15,19 @@
             %span.sr-only (current)
         %li
           %a{:href => "#"} Link
-        %li.dropdown
-          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Select language
-            %span.caret
-          %ul.dropdown-menu
-            %li
-              %a{:href => "#"} Action
-            %li
-              %a{:href => "#"} Another action
-            %li
-              %a{:href => "#"} Something else here
-            %li.divider{:role => "separator"}
-            %li
-              %a{:href => "#"} Separated link
-            %li.divider{:role => "separator"}
-            %li
-              %a{:href => "#"} One more separated link
-
+        - if user_signed_in?
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              Change
+              = flag_icon(current_user.lang.flag)
+              language
+              %span.caret
+            %ul.dropdown-menu
+              - langs.each do |lang|
+                %li
+                  %p
+                    = flag_icon(lang.flag)
+                    = link_to lang.name, lang_user_path(current_user.lang_id, id: current_user.id, user: { lang_id: lang.id }), method: :put
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Select category
@@ -43,10 +38,10 @@
         %li
           %a{:href => "#"} All my words
 
-        %form.navbar-form.navbar-left{:role => "search"}
+        %form.navbar-form.navbar-left{ role: 'search' }
           .form-group
-            %input.form-control{:placeholder => "Search", :type => "text"}/
-          %button.btn.btn-default{:type => "submit"} Submit
+            %input.form-control{ placeholder: 'Search', type: 'text'}/
+          %button.btn.btn-default{ type: 'submit' } Submit
 
         - if user_signed_in?
           %li.active

@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Lang.create(name: 'English')
-Lang.create(name: 'Русский')
-Lang.create(name: 'Українська')
+Lang.create(name: 'Українська', flag: 'ua')
+Lang.create(name: 'English', flag: 'us')
+Lang.create(name: 'Русский', flag: 'ru')
 
 User.create(email: '_slavka@bigmir.net', password: '111111', lang_id: 1)
 

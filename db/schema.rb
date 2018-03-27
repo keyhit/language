@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20180321091746) do
 
   create_table "langs", force: :cascade do |t|
     t.string   "name"
+    t.string   "flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
