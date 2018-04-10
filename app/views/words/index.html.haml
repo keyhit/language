@@ -16,3 +16,7 @@
 %br/
 = link_to 'New Word', new_word_path
 = link_to 'Lout', destroy_user_session_path, method: :delete
+
+- if !@search_results.nil?
+  = binding.pry
+  = @search_results.name

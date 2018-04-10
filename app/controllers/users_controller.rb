@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if User.update(user_params)
-        format.html { redirect_to '/', notice: 'Word was successfully updated.' }
+        format
+          .html { redirect_to '/', notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -13,9 +14,9 @@ class UsersController < ApplicationController
     end
   end
 
-# binding.pry
   private
+
   def user_params
-    params.require(:user).permit(:id, :lang_id)
+    params.require(:user).permit(:id, :lang_id, :category_id, :translate_to)
   end
 end

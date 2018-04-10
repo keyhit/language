@@ -11,6 +11,8 @@ gem 'bootstrap_form',
 
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
+# gem 'elasticsearch-model', github: 'elastic/elasticsearch-rails', branch: '5.x'
+# gem 'elasticsearch-rails', github: 'elastic/elasticsearch-rails', branch: '5.x'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 0.18'
 gem 'pry'

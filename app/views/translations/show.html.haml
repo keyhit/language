@@ -1,4 +1,8 @@
 %p#notice= notice
+%tbody
+- @translation.words.each do |translation|
+  %tr
+    %td= translation.name
 = link_to 'Edit', edit_translation_path(@translation)
 |
 = link_to 'Back', translations_path
